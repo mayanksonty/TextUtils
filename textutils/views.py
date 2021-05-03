@@ -4,7 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'index.html')
-    # return HttpResponse("<h1>Hello</h1>  <a href = https://www.codewithharry.com/videos/python-gui-tkinter-hindi-1>Code with HArry </a>")
 
 def analyze(request):
     djtext = request.POST.get('text','default')
@@ -14,7 +13,7 @@ def analyze(request):
     extraspaceremover = request.POST.get('extraspaceremover','off')
     charactercounter = request.POST.get('charactercounter','off')
     count = 0
-    # print(removepunc1)
+
     if removepunc == 'on':
         punctions = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         analyzed = ""
@@ -22,7 +21,7 @@ def analyze(request):
             if char not in punctions:
                 analyzed = analyzed+char
         djtext = analyzed
-        # params = {'purpose':'Removed Punctuations','analyzed_text':analyzed}
+        
     
     if capitalize == 'on':
         analyzed = ""
@@ -30,7 +29,7 @@ def analyze(request):
             analyzed = analyzed+char.upper()
         
         djtext = analyzed
-        # params = {'purpose':'Capitalised Text','analyzed_text':analyzed}
+       
 
     if newlineremover == "on":
         analyzed = ""
@@ -39,7 +38,7 @@ def analyze(request):
                 analyzed = analyzed+char
         
         djtext = analyzed
-        # params = {"purpose":"New Line Removal","analyzed_text":analyzed}
+       
     
     if extraspaceremover == "on":
         analyzed = ""
@@ -49,7 +48,7 @@ def analyze(request):
             
         djtext = analyzed
                 
-        # params = {"purpose":"Removing extra spaces","analyzed_text":analyzed}
+        
 
     if charactercounter == "on":
         
